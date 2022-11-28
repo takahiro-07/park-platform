@@ -8,7 +8,5 @@ export const useApi = () => {
 
   const { data, error } = useSWR('http://localhost:8000/api/hello', fetcher)
 
-  console.log(data)
-
   return { hello: data, isLoading: !error && !data, isError: error }
 }
