@@ -1,10 +1,14 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
+import axios from 'axios'
+import useSWR from 'swr'
 
-type Data = {
-  name: string
-}
+type Test = { id: number; name: string }
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  res.status(200).json({ name: 'John Doe' })
+export const useApi = () => {
+  const fetcher = (url: string): Promise<Test> => axios(url).then((res) => res.data)
+
+  const { data, error } = useSWR('http://localhost:8000/api/hello', fetcher)
+
+  console.log(data)
+
+  return { hello: data, isLoading: !error && !data, isError: error }
 }
