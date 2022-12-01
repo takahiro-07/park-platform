@@ -12,7 +12,7 @@ type Todo = {
 }
 
 const Hello: NextPage = () => {
-  const { hello, isLoading, isError } = useApi()
+  const { hello, isLoading, isError, saveDate } = useApi()
   const [todos, setTodos] = useState<Todo[]>([])
 
   useEffect(() => {
@@ -43,6 +43,7 @@ const Hello: NextPage = () => {
       {todos.map((todo) => (
         <div key={todo.id}>{todo.email}</div>
       ))}
+      <button onClick={saveDate}>追加</button>
     </>
   )
 }

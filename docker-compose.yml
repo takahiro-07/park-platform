@@ -24,6 +24,8 @@ services:
       RAILS_ENV: development
       API_DOMAIN: "localhost:8000"
       BASE_URL: "http://localhost:3000"
+    tty: true
+    stdin_open: true
     ports:
       - "8000:3000"
     depends_on:

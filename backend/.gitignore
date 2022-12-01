@@ -28,3 +28,5 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /db/mysql_data
+.env
+park-platform-firebase-adminsdk-x8tzh-9cebe8cf2b.json
