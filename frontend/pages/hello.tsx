@@ -17,12 +17,12 @@ const Hello: NextPage = () => {
 
   useEffect(() => {
     const usersCollectionRef = collection(db, 'todos')
-    // getDocs(usersCollectionRef).then((querySnapshot) => {
-    //   // TODO: アサーションでやらない方法 https://www.gixo.jp/blog/15372/
-    //   const todoResult = querySnapshot.docs.map((doc) => ({ ...(doc.data() as Todo), id: doc.id }))
-    //   console.log(1)
-    //   setTodos(todoResult)
-    // })
+    getDocs(usersCollectionRef).then((querySnapshot) => {
+      // TODO: アサーションでやらない方法 https://www.gixo.jp/blog/15372/
+      const todoResult = querySnapshot.docs.map((doc) => ({ ...(doc.data() as Todo), id: doc.id }))
+      console.log(1)
+      setTodos(todoResult)
+    })
     const unsub = onSnapshot(usersCollectionRef, (querySnapshot) => {
       // TODO: アサーションでやらない方法 https://www.gixo.jp/blog/15372/
       setTodos(querySnapshot.docs.map((doc) => ({ ...(doc.data() as Todo), id: doc.id })))
@@ -34,8 +34,6 @@ const Hello: NextPage = () => {
   if (isLoading) return <p>...ローディング</p>
   if (isError) return <p>...エラー</p>
   if (!hello) return <p>...エラー</p>
-
-  console.log(process.env.NEXT_PUBLIC_APP_ID)
 
   return (
     <>
