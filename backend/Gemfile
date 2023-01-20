@@ -53,3 +53,5 @@ gem 'dotenv-rails'
 
 gem 'graphql'
 
+gem 'graphiql-rails'
+
