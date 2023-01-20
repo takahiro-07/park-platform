@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 import { useEffect, useState } from 'react'
 
-const TagsPage: NextPage = () => {
+const TagPage: NextPage = () => {
   // const { hello, isLoading, isError, saveDate } = useApi()
   // const [todos, setTodos] = useState<Todo[]>([])
 
@@ -15,9 +15,9 @@ const TagsPage: NextPage = () => {
 
   return (
     <>
-      <p>{"tags"}</p>
+      <p>{'tag'}</p>
     </>
   )
 }
 
-export default TagsPage
+export default TagPage
