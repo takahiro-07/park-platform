@@ -3,7 +3,7 @@ module Mutations
     class CreateTag < Mutations::BaseMutation
       graphql_name 'createTag'
 
-      argument :params, Types::InputTypes:TagInput, required: true
+      argument :params, Types::InputTypes::TagInput, required: true
 
       field :tag, Types::ObjectTypes::TagType, null: false
 

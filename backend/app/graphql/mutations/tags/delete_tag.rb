@@ -5,13 +5,13 @@ module Mutations
 
       argument :id, ID, required: true
 
-      field :tag, Types::ObjectTypes::TagType, null: false
+      field :id, ID, null: false
 
       def resolve(id:)
-        tag = ::Tag.find(params[:id])
+        tag = ::Tag.find(id)
         tag.destroy!
 
-        { tag: }
+        # { id: id }
       rescue StandardError => e
         GraphQL::ExecutionError.new(e.message)
       end
