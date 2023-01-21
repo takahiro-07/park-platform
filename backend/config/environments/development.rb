@@ -54,6 +54,10 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
 
 
+  # https://techracho.bpsinc.jp/hachi8833/2020_03_06/88256
+  # https://qiita.com/3104k/items/496e0df4886c7d66dbf0
+  # codegenを実行するときにdockerコンテナのホスト名をホワイトリストに入れてあげないとリクエストが許可されない
+  config.hosts << 'backend'
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
