@@ -8,3 +8,7 @@ WORKDIR $APP_HOME
 
 ## ローカルのfrontend以下をコピーする
 COPY ./frontend $APP_HOME
+
+ENV HOME=/LANG=C.UTF-8 \
+    TZ=Asia/Tokyo \
+    HOST=0.0.0.0 \
