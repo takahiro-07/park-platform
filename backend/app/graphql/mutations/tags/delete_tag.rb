@@ -5,13 +5,13 @@ module Mutations
 
       argument :id, ID, required: true
 
-      field :id, ID, null: false
+      field :deleted, Boolean, null: false
 
       def resolve(id:)
         tag = ::Tag.find(id)
-        tag.destroy!
+        result = tag.destroy!
 
-        # { id: id }
+        { deleted: result }
       rescue StandardError => e
         GraphQL::ExecutionError.new(e.message)
       end
