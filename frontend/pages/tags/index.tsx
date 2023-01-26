@@ -24,14 +24,16 @@ const TagsPage: NextPage = () => {
   //   })
   // }, [requestTags])
 
-  if (loading) return <p>...ローディング</p>
+  if (loading) return <p aria-label="ローディング">...ローディング</p>
   if (error) return <p>...エラー</p>
   if (!data?.tags) return <p>...エラー</p>
 
   return (
     <>
       {data?.tags.map((tag) => (
-        <p key={tag.id}>{tag.name}</p>
+        <p key={tag.id} data-testid={`tag_${tag.id}`}>
+          {tag.name}
+        </p>
       ))}
     </>
   )
