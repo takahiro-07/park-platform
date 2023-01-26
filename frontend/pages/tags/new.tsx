@@ -15,21 +15,21 @@ const TagNewPage: NextPage = () => {
   const [tagInput, setTagInput] = useState<TagInput>(initTag)
   const [createTag] = useMutation(CreateTagDocument)
 
-  const handleCreateTag = useCallback(
-    (tag: TagInput) => {
-      return createTag({
-        variables: { input: { params: tag } },
-        onCompleted: (e) => {
-          console.log(e)
-        },
-        onError: (e) => {
-          // 失敗時の処理
-          console.error(e)
-        },
-      })
-    },
-    [createTag]
-  )
+  // const handleCreateTag = useCallback(
+  //   (tag: TagInput) => {
+  //     return createTag({
+  //       variables: { input: { params: tag } },
+  //       onCompleted: (e) => {
+  //         console.log(e)
+  //       },
+  //       onError: (e) => {
+  //         // 失敗時の処理
+  //         console.error(e)
+  //       },
+  //     })
+  //   },
+  //   [createTag]
+  // )
 
   // console.log({ data })
   // console.log({ error })
@@ -37,12 +37,13 @@ const TagNewPage: NextPage = () => {
 
   return (
     <>
+      <p data-testid="test">test</p>
       <form
         className="formInput"
         onSubmit={(e) => {
           e.preventDefault()
           if (!tagInput) return
-          handleCreateTag(tagInput)
+          // handleCreateTag(tagInput)
         }}
       >
         <input
@@ -56,9 +57,9 @@ const TagNewPage: NextPage = () => {
           placeholder="タグ番号"
           type="number"
           value={tagInput?.tagNumber || 0}
-          onChange={(e) => setTagInput({ ...tagInput, tagNumber: e.currentTarget.valueAsNumber })}
+          onChange={(e) => setTagInput({ ...tagInput, tagNumber: Number(e.currentTarget.valueAsNumber) })}
         />
-        <button>タグの追加</button>
+        <button id="test">タグの追加</button>
       </form>
     </>
   )
