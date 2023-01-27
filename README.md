@@ -3,6 +3,10 @@
 
 ※ 今回はNext.js + RailsでGraphQLの構築　＋ Code Generatorができるようにするのが目的なので、dockerやコンポーネントのリファクタ等は力を入れていない
 
+forkは以下の個人アカウントから行った
+
+https://github.com/horisanLog
+
 ## backend
 
 以下に説明を記載
