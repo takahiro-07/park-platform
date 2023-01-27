@@ -8,7 +8,7 @@ const TagsPage: NextPage = () => {
   const { loading, error, data } = useQuery<TagsQuery>(TAGS_QUERY)
 
   // useLazyQueryはuseEffect内で使わないといけないので画面遷移時にデータをフェッチする場合は、useQueryがベストだと思う
-  
+
   // const [requestTags, { data: tagsResult, loading: tagsLoading, error: tagsError }] =
   //   useLazyQuery(TagsDocument)
 

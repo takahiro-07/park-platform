@@ -1,4 +1,4 @@
-import { useLazyQuery, useMutation, useQuery } from '@apollo/client'
+import { useMutation } from '@apollo/client'
 import { NextPage } from 'next'
 import { useCallback, useState } from 'react'
 
@@ -15,25 +15,21 @@ const TagNewPage: NextPage = () => {
   const [tagInput, setTagInput] = useState<TagInput>(initTag)
   const [createTag] = useMutation(CreateTagDocument)
 
-  // const handleCreateTag = useCallback(
-  //   (tag: TagInput) => {
-  //     return createTag({
-  //       variables: { input: { params: tag } },
-  //       onCompleted: (e) => {
-  //         console.log(e)
-  //       },
-  //       onError: (e) => {
-  //         // 失敗時の処理
-  //         console.error(e)
-  //       },
-  //     })
-  //   },
-  //   [createTag]
-  // )
-
-  // console.log({ data })
-  // console.log({ error })
-  // console.log({ loading })
+  const handleCreateTag = useCallback(
+    (tag: TagInput) => {
+      return createTag({
+        variables: { input: { params: tag } },
+        onCompleted: (e) => {
+          console.log(e)
+        },
+        onError: (e) => {
+          // 失敗時の処理
+          console.error(e)
+        },
+      })
+    },
+    [createTag]
+  )
 
   return (
     <>
@@ -43,7 +39,7 @@ const TagNewPage: NextPage = () => {
         onSubmit={(e) => {
           e.preventDefault()
           if (!tagInput) return
-          // handleCreateTag(tagInput)
+          handleCreateTag(tagInput)
         }}
       >
         <input
