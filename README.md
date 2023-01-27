@@ -1,5 +1,8 @@
 
 # GraphQL Code Generator で TypeScript の型を自動生成する（ Next.js + Rails ）
+
+※ 今回はNext.js + RailsでGraphQLの構築　＋ Code Generatorができるようにするのが目的なので、dockerやコンポーネントのリファクタ等は適当にしている
+
 ## backend
 
 以下に説明を記載
